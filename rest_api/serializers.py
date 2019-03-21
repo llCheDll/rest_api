@@ -1,6 +1,7 @@
+from .exceptions import UserExistsException
+from django.contrib.auth.models import User
 from rest_framework import serializers
 from rest_api.models import Post
-from django.contrib.auth.models import User
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -38,16 +39,18 @@ class RegisterSerializer(serializers.Serializer):
         self.fields['password'] = serializers.CharField(
             style={'input_type': 'password'}
         )
-        self.fields['password_repeat'] = serializers.CharField(
-            style={'input_type': 'password'}
-        )
 
     def create(self, validated_data):
         email = self.validated_data['email']
         username = self.validated_data[self.username_field]
         password = self.validated_data['password']
 
+        if (User.objects.filter(username=username).exists() or
+                User.objects.filter(email=email).exists() ):
+            raise UserExistsException
+
         user = User(username=username, email=email, password=password)
+
         user.set_password(user.password)
         user.save()
 

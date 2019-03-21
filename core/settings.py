@@ -25,7 +25,11 @@ SECRET_KEY = '7xl9-i=h4g6mxv4r3e6xrdj-@a37d=2roea-_v9ch964@q!_3m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'mmitch.pythonanywhere.com']
+ALLOWED_HOSTS = [
+    u'mmitch.pythonanywhere.com',
+    u'localhost',
+    u'127.0.0.1'
+]
 
 
 # Application definition
@@ -52,7 +56,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'social.urls'
+ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +74,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'social.wsgi.application'
+WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database
@@ -134,7 +138,7 @@ STATIC_URL = '/static/'
 
 # default static files settings for PythonAnywhere.
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
-MEDIA_ROOT = u'/home/mmitch/mysite/media'
-MEDIA_URL = '/media/'
-STATIC_ROOT = u'/home/mmitch/mysite/static'
-STATIC_URL = '/static/'
+# MEDIA_ROOT = u'/home/mmitch/mysite/media'
+# MEDIA_URL = '/media/'
+# STATIC_ROOT = u'/home/mmitch/mysite/static'
+# STATIC_URL = '/static/'
