@@ -3,5 +3,6 @@ Django==2.1.7
 django-filter==2.1.0
 djangorestframework==3.9.2
 djangorestframework-simplejwt==4.1.0
+flake8==3.7.7
 ipdb==0.12
 Markdown==3.0.1

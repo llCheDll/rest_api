@@ -46,7 +46,7 @@ class RegisterSerializer(serializers.Serializer):
         password = self.validated_data['password']
 
         if (User.objects.filter(username=username).exists() or
-                User.objects.filter(email=email).exists() ):
+                User.objects.filter(email=email).exists()):
             raise UserExistsException
 
         user = User(username=username, email=email, password=password)

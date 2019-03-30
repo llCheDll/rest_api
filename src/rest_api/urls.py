@@ -5,7 +5,6 @@ from rest_api.views import PostViewSet, RegisterView
 from rest_framework import routers
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
-    TokenRefreshView,
 )
 
 
@@ -14,9 +13,6 @@ router.register(r'posts', PostViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
-    url(r'^signup/$', RegisterView.as_view(), name='register' ),
+    url(r'^signup/$', RegisterView.as_view(), name='register'),
     url(r'^login/$', TokenObtainPairView.as_view(), name='login'),
-    # url(r'^token/refresh/$', TokenRefreshView.as_view(), name='token_refresh'),
 ]
-
-
